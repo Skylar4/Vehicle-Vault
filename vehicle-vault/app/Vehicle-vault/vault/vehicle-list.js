@@ -1,7 +1,7 @@
 import React from 'react'
 import Vehicle from './vehicle'
 
-export default function VehicleList() {
+export default function VehicleList({vehicleList}) {
     const vehicleArray = [
         {
             id: "abc123", // Firestore document ID
@@ -46,7 +46,7 @@ export default function VehicleList() {
   return (
 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
   {
-    vehicleArray.map((vehicle) => (
+    vehicleList.map((vehicle) => (
       <Vehicle key={vehicle.id} vehicle={vehicle} />
     ))
   }
