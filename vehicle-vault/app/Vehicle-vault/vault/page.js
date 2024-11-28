@@ -5,10 +5,12 @@ import VehicleList from './vehicle-list'
 import NewVehicleForm from './new-vehicle-form'
 import { addVehicle, getvehicle } from '../_services/vault-services'
 import { useUserAuth } from '../_utils/auth-context';
+import Modal from '../componants/modal'
 
 export default function page() {
   const { user } = useUserAuth();
 const [vehicleList, setVehicleList] = useState([]);
+const [isModalopen, setModalOpen] = useState(false);
 async function loadVehilces(){
 
   const vehicles = await getvehicle(user.uid)
@@ -39,15 +41,23 @@ useEffect(() => {
  
   return (
     <div>
-      <NavBar/>
+    <NavBar />
+    <div className="flex-1">
       <div>
-        <VehicleList vehicleList={vehicleList}/>
+        <VehicleList vehicleList={vehicleList} />
+        <div>
+          <button onClick={() => setModalOpen(true)} className='p-3 bg-lime-600 rounded-xl'>Open the Modal</button>
+        </div>
       </div>
-      <div>
-        <NewVehicleForm addVehicleFunc={AddVehicle}/>
-      </div>
-
+      {isModalopen && (
+        <div >
+          <Modal onClose={() => setModalOpen(false)}>
+            <NewVehicleForm addVehicleFunc={AddVehicle} />
+          </Modal>
+        </div>
+      )}
     </div>
+  </div>
 
     
   )

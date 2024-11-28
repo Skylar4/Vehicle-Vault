@@ -32,78 +32,89 @@ export default function NewVehicleForm({ addVehicleFunc }) {
     setKilometers('');
     setReports([]);
   };
-
+  const labelsstyle = 'text-black border-black';
+  const inputStyle = 'border-2 border-black rounded-xl text-black';
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <label>Make:</label>
+      <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'}>
+      <div >
+        <label className= {labelsstyle}>Make:</label>
         <input
           type="text"
           value={make}
           onChange={(e) => setMake(e.target.value)}
-          required
+          className= {inputStyle}
         />
       </div>
 
-      <div>
-        <label>Model:</label>
+      <div >
+        <label className= {labelsstyle}>Model:</label>
         <input
           type="text"
           value={model}
           onChange={(e) => setModel(e.target.value)}
           required
+          className= {inputStyle}
         />
       </div>
 
       <div>
-        <label>Year:</label>
+        <label className= {labelsstyle}>Year:</label>
         <input
           type="number"
           value={year}
           onChange={(e) => setYear(e.target.value)}
           required
+          className= {inputStyle}
         />
       </div>
 
       <div>
-        <label>License Plate:</label>
+        <label className= {labelsstyle}>License Plate:</label>
         <input
           type="text"
           value={licensePlate}
           onChange={(e) => setLicensePlate(e.target.value)}
           required
+          className= {inputStyle}
         />
       </div>
 
       <div>
-        <label>Color:</label>
+        <label className= {labelsstyle}>Color:</label>
         <input
           type="text"
           value={color}
           onChange={(e) => setColor(e.target.value)}
           required
+          className= {inputStyle}
         />
       </div>
 
       <div>
-        <label>Kilometers:</label>
+        <label className= {labelsstyle}>Kilometers:</label>
         <input
           type="number"
           value={kilometers}
           onChange={(e) => setKilometers(e.target.value)}
           required
+          className= {inputStyle}
         />
       </div>
 
       <div>
-        <label>Reports (optional):</label>
+        <label className= {labelsstyle}>Reports (optional):</label>
         <textarea
           value={reports}
           onChange={(e) => setReports(e.target.value.split(','))}
+          className= {inputStyle}
         />
       </div>
 
-      <button type="submit">Add Vehicle</button>
+      <button type="submit" className='p-2 bg-red-500 rounded'>Add Vehicle</button>
+      </div>
     </form>
   );
 }
+
+
