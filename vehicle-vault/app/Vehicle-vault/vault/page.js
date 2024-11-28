@@ -1,16 +1,26 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import NavBar from '../componants/navbar'
 import VehicleList from './vehicle-list'
 import NewVehicleForm from './new-vehicle-form'
 import { addVehicle, getvehicle } from '../_services/vault-services'
 import { useUserAuth } from '../_utils/auth-context';
 import Modal from '../componants/modal'
+import NavBar from '../componants/navbar'
+import VehicleDetail from './vehicleDetail'
 
 export default function page() {
   const { user } = useUserAuth();
 const [vehicleList, setVehicleList] = useState([]);
 const [isModalopen, setModalOpen] = useState(false);
+const [selectedVehicle, setSelectedVehicle] = useState(null);
+
+const selectVehicle = (vehicle) => {
+  setSelectedVehicle(vehicle); 
+};
+
+const goBackToList = () => {
+  setSelectedVehicle(null); 
+};
 async function loadVehilces(){
 
   const vehicles = await getvehicle(user.uid)
@@ -40,24 +50,38 @@ useEffect(() => {
 
  
   return (
-    <div>
-    <NavBar />
-    <div className="flex-1">
-      <div>
-        <VehicleList vehicleList={vehicleList} />
+
+
+
+<div>
+  {selectedVehicle ? (
+    <VehicleDetail vehicle={selectedVehicle} goBack={goBackToList} />
+  ) : (
+    <>
+      <NavBar />
+      <div className="flex-1">
         <div>
-          <button onClick={() => setModalOpen(true)} className='p-3 bg-lime-600 rounded-xl'>Open the Modal</button>
+          <VehicleList vehicleList={vehicleList} onselect={selectVehicle} />
         </div>
+        {isModalopen && (
+          <div>
+            <Modal onClose={() => setModalOpen(false)}>
+              <NewVehicleForm addVehicleFunc={AddVehicle} />
+            </Modal>
+          </div>
+        )}
       </div>
-      {isModalopen && (
-        <div >
-          <Modal onClose={() => setModalOpen(false)}>
-            <NewVehicleForm addVehicleFunc={AddVehicle} />
-          </Modal>
-        </div>
-      )}
-    </div>
-  </div>
+      <footer className="justify-center items-center">
+        <button
+          onClick={() => setModalOpen(true)}
+          className="p-3 bg-slate-900 rounded-xl fixed bottom-0"
+        >
+          Open the Modal
+        </button>
+      </footer>
+    </>
+  )}
+</div>
 
     
   )

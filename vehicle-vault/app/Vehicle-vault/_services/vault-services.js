@@ -45,4 +45,19 @@ export async function addVehicle(userID, vehicle){
 
 
 }
+export async function getVehicleById(userID, vehicleId) {
+    try {
+      const docRef = doc(db, "Users", userID, "vehicle", vehicleId);
+      const docSnap = await getDoc(docRef);
+  
+      if (docSnap.exists()) {
+        return { id: docSnap.id, ...docSnap.data() };
+      } else {
+        throw new Error("Vehicle not found");
+      }
+    } catch (error) {
+      console.error("Error fetching vehicle:", error);
+      return null;
+    }
+  }
 

@@ -27,12 +27,12 @@ export default function NavBar() {
       console.log(error);
     }
   }
-const linkStyle = "p-5  bg-blue-700 rounded"
+
   const linkClasses = (path) =>
     `p-5 text-2xl rounded m-4 ${
       normalizePath(pathname) === normalizePath(path)
-        ? "bg-green-500 text-white"
-        : "bg-blue-700 text-white"
+        ? "bg-red-900 text-white"
+        : "bg-slate-900 text-white"
     }`;
 
   return (
@@ -66,7 +66,7 @@ const linkStyle = "p-5  bg-blue-700 rounded"
 
             <button
             type="button"
-            className="bg-blue-700 text-white m-4 h-16 rounded p-4 text-2xl "
+            className="bg-slate-900 text-white m-4 h-16 rounded p-4 text-2xl "
             onClick={handleSignOut}
           >
             Sign Out
