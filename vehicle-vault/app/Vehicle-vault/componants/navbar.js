@@ -9,8 +9,7 @@ export default function NavBar() {
   const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
   const pathname = usePathname();
 
-  // Helper function to normalize paths
-  const normalizePath = (path) => path.replace(/\/$/, ""); // Removes trailing slash
+  const normalizePath = (path) => path.replace(/\/$/, "");
 
   async function handleSignIn() {
     try {
@@ -36,7 +35,7 @@ export default function NavBar() {
     }`;
 
   return (
-    <div className="items-center flex h-full justify-center h-16">
+    <div className="items-center flex justify-center h-16">
       <div>
         <Link href="/Vehicle-vault/About/" className={linkClasses("/Vehicle-vault/About/")}>
           About

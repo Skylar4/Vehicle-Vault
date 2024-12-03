@@ -1,5 +1,5 @@
 import { db } from "../_utils/firebase";
-import { collection, getDocs, addDoc, query, doc } from "firebase/firestore";
+import { collection, getDocs, addDoc, query, doc, updateDoc } from "firebase/firestore";
 
 export async function getvehicle(userID){
 
@@ -60,4 +60,23 @@ export async function getVehicleById(userID, vehicleId) {
       return null;
     }
   }
+export async function updateRepairs(userID, VehicleId,vehicle) {
+
+    try{
+    const docRef = doc(db, "Users", userID,"vehicle",VehicleId)
+    const docsnap= await updateDoc(docRef, {
+
+        reports: vehicle.reports
+    })
+    return docsnap.id;
+ }
+ catch (error){
+    console.log(error)
+    console.log(userID)
+    console.log(vehicle.reports)
+    console.log(VehicleId)
+
+ }
+
+}
 
