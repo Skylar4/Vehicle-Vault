@@ -35,9 +35,9 @@ export default function NewVehicleForm({ addVehicleFunc }) {
   const labelsstyle = 'text-black border-black';
   const inputStyle = 'border-2 border-black rounded-xl text-black';
   return (
-    <form onSubmit={handleSubmit}>
-      <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'}>
-      <div >
+    <form onSubmit={handleSubmit} className='items-center justify-center flex'>
+      <div className={'flex flex-col w-2/5 gap-2 justify-center'}>
+      <div  className="flex items-center justify-between gap-4">
         <label className= {labelsstyle}>Make:</label>
         <input
           type="text"
@@ -47,7 +47,7 @@ export default function NewVehicleForm({ addVehicleFunc }) {
         />
       </div>
 
-      <div >
+      <div className="flex items-center justify-between gap-4">
         <label className= {labelsstyle}>Model:</label>
         <input
           type="text"
@@ -58,7 +58,7 @@ export default function NewVehicleForm({ addVehicleFunc }) {
         />
       </div>
 
-      <div>
+      <div className="flex items-center justify-between gap-4">
         <label className= {labelsstyle}>Year:</label>
         <input
           type="number"
@@ -69,7 +69,7 @@ export default function NewVehicleForm({ addVehicleFunc }) {
         />
       </div>
 
-      <div>
+      <div className="flex items-center justify-between gap-4">
         <label className= {labelsstyle}>License Plate:</label>
         <input
           type="text"
@@ -80,7 +80,7 @@ export default function NewVehicleForm({ addVehicleFunc }) {
         />
       </div>
 
-      <div>
+      <div className="flex items-center justify-between gap-4">
         <label className= {labelsstyle}>Color:</label>
         <input
           type="text"
@@ -91,7 +91,7 @@ export default function NewVehicleForm({ addVehicleFunc }) {
         />
       </div>
 
-      <div>
+      <div className="flex items-center justify-between gap-4">
         <label className= {labelsstyle}>Kilometers:</label>
         <input
           type="number"
@@ -101,17 +101,17 @@ export default function NewVehicleForm({ addVehicleFunc }) {
           className= {inputStyle}
         />
       </div>
-
-      <div>
+{/* 
+      <div className="flex items-center justify-between gap-4">
         <label className= {labelsstyle}>Reports (optional):</label>
         <textarea
           value={reports}
           onChange={(e) => setReports(e.target.value.split(','))}
           className= {inputStyle}
         />
-      </div>
+      </div> */}
 
-      <button type="submit" className='p-2 bg-red-500 rounded'>Add Vehicle</button>
+      <button type="submit" className='p-2 bg-teal-400 hover:bg-teal-600 rounded-xl'>Add Vehicle</button>
       </div>
     </form>
   );

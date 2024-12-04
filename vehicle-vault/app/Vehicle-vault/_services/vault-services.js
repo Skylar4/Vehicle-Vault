@@ -97,7 +97,6 @@ export async function getProfileData(userID) {
   
       return {totalVehicles, totalRepairs };
     } catch (error) {
-      console.error("Error fetching profile data:", error);
-      return { totalVehicles: 0, totalRepairs: 0 };
+        console.log(error)
     }
   }

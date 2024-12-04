@@ -72,14 +72,14 @@ useEffect(() => {
           </div>
         )}
       </div>
-      <footer className="justify-center items-center">
+      
         <button
           onClick={() => setModalOpen(true)}
-          className="p-3 bg-slate-900 rounded-xl fixed bottom-0"
+          className="p-3 bg-teal-400 rounded-xl    ml-10 bottom-1 align-middle justify-center"
         >
-          Open the Modal
+          Add Vehicle
         </button>
-      </footer>
+      
     </>
   )}
 </div>

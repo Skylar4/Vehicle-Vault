@@ -28,9 +28,18 @@ console.dir(user);
     <main>
     {user ? (
 
-
+      <div>
         <NavBar/>
-
+        <div className='text-center mt-4'>
+        <div className=' items-center justify-center'>
+      <h1 className=' text-7xl text-white '>Welcome to Vehicle Vault</h1>
+      <div className='w-2/3 mx-auto mt-4'>
+      <p className='text-white text-2xl'>If you want to know more about the app click on about. if you want to get right into using it, click on 'Your Vault'</p>
+      </div>
+      </div>
+      </div>
+      </div>
+      
 
     ) : (
 

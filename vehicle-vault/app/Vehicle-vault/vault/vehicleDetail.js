@@ -38,6 +38,7 @@ const VehicleDetail = ({ vehicle, goBack }) => {
       </h1>
       <p className="text-white">Kilometers: {vehicle.kilometers}</p>
       <p className="text-white">Color: {vehicle.color}</p>
+      <p className="text-white">Plate {vehicle.licensePlate}</p>
 
       {formVisibility ? (
         <div>
