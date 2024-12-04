@@ -79,4 +79,25 @@ export async function updateRepairs(userID, VehicleId,vehicle) {
  }
 
 }
-
+export async function getProfileData(userID) {
+    try {
+      const vehicleCollectionRef = collection(db, "Users", userID, "vehicle");
+      const vehicleSnapshot = await getDocs(vehicleCollectionRef);
+  
+      let totalVehicles = 0;
+      let totalRepairs = 0;
+  
+      vehicleSnapshot.forEach((doc) => {
+        totalVehicles++;
+        const vehicleData = doc.data();
+        if (vehicleData.reports && Array.isArray(vehicleData.reports)) {
+          totalRepairs += vehicleData.reports.length;
+        }
+      });
+  
+      return {totalVehicles, totalRepairs };
+    } catch (error) {
+      console.error("Error fetching profile data:", error);
+      return { totalVehicles: 0, totalRepairs: 0 };
+    }
+  }

@@ -33,35 +33,35 @@ const VehicleDetail = ({ vehicle, goBack }) => {
 
   return (
     <div className="p-5 border border-slate-900 rounded bg-slate-900">
-      <h1>
+      <h1 className="text-white">
         {vehicle.make} {vehicle.model}
       </h1>
-      <p>Kilometers: {vehicle.kilometers}</p>
-      <p>Color: {vehicle.color}</p>
+      <p className="text-white">Kilometers: {vehicle.kilometers}</p>
+      <p className="text-white">Color: {vehicle.color}</p>
 
       {formVisibility ? (
         <div>
           <RepairForm repairdata={addRepair} />
-          <button onClick={changeVisibility}>Close Form</button>
+          <button onClick={changeVisibility} className="text-white bg-teal-400 p-2 rounded-xl mt-4 hover:bg-teal-600">Close Form</button>
         </div>
       ) : (
-        <button onClick={changeVisibility}>Add Repair</button>
+        <button onClick={changeVisibility} className="text-white bg-teal-400 p-2 rounded-xl mt-4 mb-4 hover:bg-teal-600">Add Repair</button>
       )}
 
-      <h2>Repairs</h2>
+      <h2 className="text-white text-xl underline">Repair History</h2>
       <ul>
         {repairs.map((repair) => (
-          <li key={repair.id}>
-            {repair.date} - {repair.title} (${repair.cost})
+          <li key={repair.id} className="text-white">
+            {repair.date} - {repair.title} (${repair.cost}) {repair.description}
           </li>
         ))}
       </ul>
 
       <button
         onClick={goBack}
-        className="mt-4 p-2 bg-blue-500 text-white rounded"
+        className="mt-4 p-2 bg-teal-400 text-white rounded hover:bg-teal-600"
       >
-        Back to List
+        Back to Vault
       </button>
     </div>
   );

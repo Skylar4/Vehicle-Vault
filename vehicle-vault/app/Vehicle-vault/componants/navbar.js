@@ -30,12 +30,12 @@ export default function NavBar() {
   const linkClasses = (path) =>
     `p-5 text-2xl rounded m-4 ${
       normalizePath(pathname) === normalizePath(path)
-        ? "bg-red-900 text-white"
-        : "bg-slate-900 text-white"
+        ? "bg-teal-400 text-white hover:bg-teal-600"
+        : "bg-slate-400 text-white hover:bg-teal-600"
     }`;
 
   return (
-    <div className="items-center flex justify-center h-16">
+    <div className="items-center flex justify-center h-16 mt-4">
       <div>
         <Link href="/Vehicle-vault/About/" className={linkClasses("/Vehicle-vault/About/")}>
           About
@@ -44,7 +44,7 @@ export default function NavBar() {
 
       <div>
         <Link href="/Vehicle-vault/vault/" className={linkClasses("/Vehicle-vault/vault/")}>
-          View your Vault
+          Your Vault
         </Link>
       </div>
 
@@ -65,7 +65,7 @@ export default function NavBar() {
 
             <button
             type="button"
-            className="bg-slate-900 text-white m-4 h-16 rounded p-4 text-2xl "
+            className="bg-slate-400 text-white m-4 h-16 rounded p-4 text-2xl "
             onClick={handleSignOut}
           >
             Sign Out

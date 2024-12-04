@@ -25,37 +25,61 @@ export default function RepairForm({repairdata}) {
           cost: "",
         });
       };
+      const labelStyle = "w-1/4 text-left text-white";
+      const InputStyle = "flex-grow border border-teal-400 rounded px-2 py-1";
     return (
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label>Date:</label>
-            <input name="date" value={RepairData.date} onChange={handleChange} />
-          </div>
-          <div>
-            <label>Kilometers:</label>
-            <input
-              name="kilometers"
-              value={RepairData.kilometers}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label>Title:</label>
-            <input name="title" value={RepairData.title} onChange={handleChange} />
-          </div>
-          <div>
-            <label>Description:</label>
-            <textarea
-              name="description"
-              value={RepairData.description}
-              onChange={handleChange}
-            ></textarea>
-          </div>
-          <div>
-            <label>Cost:</label>
-            <input name="cost" value={RepairData.cost} onChange={handleChange} />
-          </div>
-          <button type="submit">Add Repair</button>
-        </form>
+<form onSubmit={handleSubmit} className="flex flex-col gap-4 w-1/3">
+  <div className="flex items-center justify-between gap-4">
+    <label className={labelStyle}>Date:</label>
+    <input
+      className={InputStyle}
+      name="date"
+      value={RepairData.date}
+      onChange={handleChange}
+    />
+  </div>
+  <div className="flex items-center justify-between gap-4">
+    <label className={labelStyle}>Kilometers:</label>
+    <input
+      className={InputStyle}
+      name="kilometers"
+      value={RepairData.kilometers}
+      onChange={handleChange}
+    />
+  </div>
+  <div className="flex items-center justify-between gap-4">
+    <label className={labelStyle}>Title:</label>
+    <input
+      className={InputStyle}
+      name="title"
+      value={RepairData.title}
+      onChange={handleChange}
+    />
+  </div>
+  <div className="flex items-center justify-between gap-4">
+    <label className={labelStyle}>Description:</label>
+    <textarea
+      className={InputStyle}
+      name="description"
+      value={RepairData.description}
+      onChange={handleChange}
+    ></textarea>
+  </div>
+  <div className="flex items-center justify-between gap-4">
+    <label className={labelStyle}>Cost:</label>
+    <input
+      className={InputStyle}
+      name="cost"
+      value={RepairData.cost}
+      onChange={handleChange}
+    />
+  </div>
+  <button
+    type="submit"
+    className="mt-4 px-4 py-2 bg-teal-400 text-white rounded hover:bg-teal-600"
+  >
+    Add Repair
+  </button>
+</form>
       );
 }
