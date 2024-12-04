@@ -8,7 +8,7 @@ import Modal from '../componants/modal'
 import NavBar from '../componants/navbar'
 import VehicleDetail from './vehicleDetail'
 
-export default function page() {
+export default function Page() {
   const { user } = useUserAuth();
 const [vehicleList, setVehicleList] = useState([]);
 const [isModalopen, setModalOpen] = useState(false);
@@ -75,7 +75,7 @@ useEffect(() => {
       
         <button
           onClick={() => setModalOpen(true)}
-          className="p-3 bg-teal-400 rounded-xl    ml-10 bottom-1 align-middle justify-center"
+          className="p-3 bg-teal-400 rounded-xl ml-10 bottom-1 align-middle justify-center"
         >
           Add Vehicle
         </button>

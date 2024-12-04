@@ -16,13 +16,13 @@ export default function About() {
         It is always a pain to have to go back and look up the type of oil you need, or the filter number so this allows you easily track them</p>
         <h2 className='text-6xl text-white mt-4'>How To Use It</h2>
         <ol className=' text-white text-xl mt-4'>
-          <li>1. click on 'Your Vault'</li>
+          <li>1. click on &apos;Your Vault&apos;</li>
           <li>2. click on add vehicle</li>
           <li>3. Fill out the information for your vehicle</li>
           <li>4. click on add vehicle</li>
           <li>5. click on the new box </li>
           <li>6. start adding repairs!</li>
-          <li>for fun you can go to your home page and track the number of repairs you've made.</li>
+          <li>for fun you can go to your home page and track the number of repairs you&apos;ve made.</li>
         </ol>
         </div>
         </div>
