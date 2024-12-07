@@ -83,10 +83,8 @@ export async function getProfileData(userID) {
     try {
       const vehicleCollectionRef = collection(db, "Users", userID, "vehicle");
       const vehicleSnapshot = await getDocs(vehicleCollectionRef);
-  
       let totalVehicles = 0;
       let totalRepairs = 0;
-  
       vehicleSnapshot.forEach((doc) => {
         totalVehicles++;
         const vehicleData = doc.data();
